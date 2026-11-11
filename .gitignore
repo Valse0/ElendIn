@@ -1,0 +1,18 @@
+node_modules/
+dist/
+dist-apk/
+.vite/
+*.log
+.DS_Store
+
+# Android project is generated in CI by `npx cap add android`.
+# Remove the next two lines if you decide to commit the native project.
+android/
+!android/.gitkeep
+
+# Never commit signing material
+*.jks
+*.keystore
+*.p12
+.env
+.env.*

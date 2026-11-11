@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      # `npm ci` needs a lockfile. The first time, run `npm install` locally and commit package-lock.json.
+      - name: Install dependencies
+        run: |
+          if [ -f package-lock.json ]; then npm ci; else npm install; fi
+      - name: Unit tests (engine, i18n, PDF extraction, schemas, report composer, meta checks)
+        run: npm test
+      - name: Type-check and production build
+        run: npm run build

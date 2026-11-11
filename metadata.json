@@ -1,0 +1,6 @@
+{
+  "name": "ElendIn — CV Diagnostics",
+  "description": "Client-side CV diagnostics against a specific job listing. Everything runs locally in your browser with zero data leakage.",
+  "permissions": [],
+  "capabilities": []
+}
